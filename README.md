@@ -24,6 +24,8 @@ detail.
 ## Programming Assignments
 
 - Course 1: Neural Network and Deep Learning
+
+  - [Keypoints of the following homeworks](https://github.com/Bato803/deeplearning.ai/tree/master/Neural%20Network%20and%20Deep%20Learning)
   - [Week 3 - PA2 - Planar data classification with one hidden layer](https://github.com/Bato803/deeplearning.ai/blob/master/Neural%20Network%20and%20Deep%20Learning/Planar%2Bdata%2Bclassification%2Bwith%2Bone%2Bhidden%2Blayer%2Bv4.ipynb)
   - [Week 4 - PA1 - Building your Deep Neural Network: Step by Step](https://github.com/Bato803/deeplearning.ai/blob/master/Neural%20Network%20and%20Deep%20Learning/Building%2Byour%2BDeep%2BNeural%2BNetwork%2B-%2BStep%2Bby%2BStep%2Bv5.ipynb)
   - [Week 4 - PA2 - Deep Neural Network for Image Classification: Application](https://github.com/Bato803/deeplearning.ai/blob/master/Neural%20Network%20and%20Deep%20Learning/Deep%2BNeural%2BNetwork%2B-%2BApplication%2Bv3.ipynb)
