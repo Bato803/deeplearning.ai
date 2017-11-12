@@ -33,8 +33,11 @@
 
 2. If the elements in weight matrix is a bit larger than one, in a very deep network, the activation might explode. Conversely, if they are less than one, the activation might vanish. Same with the gradients in BP. 
 
-3. Partial solution for vanishing/exploding gradient problem: Careful choice of initilization. Concretely, set the input feature for each layer to be mean zero and standard variance. 
+3. Partial solution for vanishing/exploding gradient problem: Careful choice of initilization. Concretely, set the input feature for each layer to be mean zero and standard variance. Intuition behind this: Hope all the weights matrix not too much bigger/smaller than 1. 
 
-        And then: np.randn.random(shape) * np.sqrt(2/n^(l-1)) for Relu activation. 
+        For Relu: np.random.randn(shape) * np.sqrt(2/n^{l-1}) . (Setting the variance to be 2/n) 
 
-        If you're using tanh, the last term becomes np.sqrt(1/n^(l-1)) (Xavier initilization)
+        For tanh: tanh, the last term becomes np.sqrt(1/n^{l-1}) (Xavier initilization)
+        
+        Alternative: np.sqrt(2/(n^{l-1}+n^{l}))
+        
