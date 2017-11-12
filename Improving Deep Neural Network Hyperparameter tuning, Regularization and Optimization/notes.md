@@ -40,4 +40,4 @@
         For tanh: tanh, the last term becomes np.sqrt(1/n^{l-1}) (Xavier initilization)
         
         Alternative: np.sqrt(2/(n^{l-1}+n^{l}))
-        
+  4. When we do the numeric difference gradient checking, if epsilon is the order of 10^{-7}, then if the difference between the numeric and BP is the order of 10^{-7}, that's good. If it's the order of 10^{-3}, that's bad!!
