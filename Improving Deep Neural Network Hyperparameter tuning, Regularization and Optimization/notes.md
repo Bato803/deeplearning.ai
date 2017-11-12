@@ -35,6 +35,6 @@
 
 3. Partial solution for vanishing/exploding gradient problem: Careful choice of initilization. Concretely, set the input feature for each layer to be mean zero and standard variance. 
 
-And then: np.randn.random(shape) * np.sqrt(2/n^(l-1)) for Relu activation. 
+        And then: np.randn.random(shape) * np.sqrt(2/n^(l-1)) for Relu activation. 
 
-If you're using tanh, the last term becomes np.sqrt(1/n^(l-1)) (Xavier initilization)
+        If you're using tanh, the last term becomes np.sqrt(1/n^(l-1)) (Xavier initilization)
