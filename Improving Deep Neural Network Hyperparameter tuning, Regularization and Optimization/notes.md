@@ -27,3 +27,10 @@
     - Data Augmentation. (Inexpensive way)
     - Early Stopping (According to the error rate of dev set)
     
+## Optimization
+
+1. Normalizing input features -> affect your cost function shape(more round and easier to optimize) -> speed up gradient descent.
+
+2. If the elements in weight matrix is a bit larger than one, in a very deep network, the activation might explode. Conversely, if they are less than one, the activation might vanish. Same with the gradients in BP. 
+
+3. Partial solution for vanishing/exploding gradient problem: Careful choice of initilization. Concretely, set the input feature for each layer to be mean zero and standard variance. And then: np.randn.random(shape) * np.sqrt(2/n^(l-1)) for Relu activation. If you're using tanh, the last term becomes np.sqrt(1/n^(l-1)) (Xavier initilization)
