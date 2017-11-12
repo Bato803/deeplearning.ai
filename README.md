@@ -1,4 +1,4 @@
-# Deep Learning Specialization by on Coursera
+# Deep Learning Specialization on Coursera
 
 **Deepening understanding of deep learning**
 
