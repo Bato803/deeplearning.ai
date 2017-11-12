@@ -30,4 +30,5 @@ detail.
   - [Week 4 - PA2 - Deep Neural Network for Image Classification: Application](https://github.com/Bato803/deeplearning.ai/blob/master/Neural%20Network%20and%20Deep%20Learning/Deep%2BNeural%2BNetwork%2B-%2BApplication%2Bv3.ipynb)
 
 - Course 2: Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
-  - Under construction. 
+  - [Course Note](https://github.com/Bato803/deeplearning.ai/blob/master/Improving%20Deep%20Neural%20Network%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/notes.md)
+  - [Week 1 - PA1 - Initialization](https://github.com/Bato803/deeplearning.ai/blob/master/Improving%20Deep%20Neural%20Network%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Initialization.ipynb)
