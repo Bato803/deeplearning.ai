@@ -23,6 +23,8 @@
     - Dropout doesn't always generalize to other discipline. Although in CV. it's almost default. Remember, Dropout is for regularization!
     - Dropout makes cost function less well defined!
     
+            When implement dropout for backpro, remember to scale the derivative by keep_pro, just as you did in forward-pro for the activation values. 
+    
  5. Other techniques
     - Data Augmentation. (Inexpensive way)
     - Early Stopping (According to the error rate of dev set)
