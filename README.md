@@ -9,7 +9,7 @@ Instructor: [Andrew Ng](http://www.andrewng.org/)
 This repo contains my work for this specilization. All the starter codes, images and course notes, unless specified, are taken 
 from [Deep Learning Specilization from Coursera](https://www.coursera.org/specializations/deep-learning).
 
-## Why I Want To Say
+## What I Want To Say
 
 I took Prof.Ng's [machine learning](https://www.coursera.org/learn/machine-learning) course a long time ago, and that turns out to be a very fruitful course. I like his way of 
 interpreting abstract concepts and I hope one day, I would be able to analyze and explain hard concepts or algorithms in a *clear
