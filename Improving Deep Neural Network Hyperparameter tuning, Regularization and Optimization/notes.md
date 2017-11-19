@@ -50,6 +50,8 @@
  
  ## Optimization Algorithms
  
+ 
+ ### Mini-batch gradient descent
  1. Using SGD might cause you losing the speedup from vectorization. 
  
  2. Choosing Mini-batch size rule:
@@ -57,6 +59,8 @@
     2. Typical mini batch size: 64, 128, 256, 512.
     3. Make sure mini-batch size fits into your CPU or GPU.
  
+ 
+ ### Some math
  3. Exponentially weighted Averages:
     - v0 = 0
     - v1 = 0.9 * v0 + 0.1 * a1
@@ -72,4 +76,20 @@
  
  6. It's good to compute the moving average for a range of variables. 
  
+ 7. Bais Correction for Exponentially weighted Average:
+    - v(t) = (b * v(t-1) + (1-b) * a(t))/(1-b^t)
+    
+ ### Gradient Descent with Momentum
+ 1. Basic idea: Use exponentially weighted average to compute the gradient, and use that gradient to update the parameters. 
  
+ 2. Momentum:
+    - On iteration t, compute dw, db on current mini-batch. 
+        - Vdw = beta * Vdw + (1-beta) * dw
+        - Vdb = beta * Vdb + (1-beta) * db
+        - w = w - alpha * Vdw
+        - b = b - alpha * Vdb
+    - It smooths out oscillation in the direction that we don't need. Ant at the same time maintaining the gradient that points toward the minimum. 
+    - The most commonly use beta is 0.9, which means we're averaging out the last ten gradients. 
+    - When implementing gradient descent with momentum, it's not very often to use bias correction. 
+    
+### RMSprop
