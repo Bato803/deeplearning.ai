@@ -71,3 +71,5 @@
  5. This way of computing moving average is good both in terms of memory and computational efficiency. 
  
  6. It's good to compute the moving average for a range of variables. 
+ 
+ 
