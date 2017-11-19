@@ -32,5 +32,6 @@ detail.
 - Course 2: Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
   - [Course Note](https://github.com/Bato803/deeplearning.ai/blob/master/Improving%20Deep%20Neural%20Network%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/notes.md)
   - [Week 1 - PA1 - Initialization](https://github.com/Bato803/deeplearning.ai/blob/master/Improving%20Deep%20Neural%20Network%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Initialization.ipynb)
-  - [Week 1 - PA2 - Regularization](https://github.com/Bato803/deeplearning.ai/blob/master/Improving%20Deep%20Neural%20Network%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Regularization.ipynb)
+  - [Week 1 - PA2 - Regularization (L2 norm, Dropout)](https://github.com/Bato803/deeplearning.ai/blob/master/Improving%20Deep%20Neural%20Network%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Regularization.ipynb)
   - [Week 1 - PA3 - Gradient Checking](https://github.com/Bato803/deeplearning.ai/blob/master/Improving%20Deep%20Neural%20Network%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Gradient%2BChecking%2Bv1.ipynb)
+  - [Week 2 - PA1 - Optimization Methods (Momentum, RMSprop, Adam)]
