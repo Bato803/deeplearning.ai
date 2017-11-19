@@ -47,3 +47,27 @@
  5. Implement Gradient Checking without Dropout!
   
  6. Train the network for some time so that w, b can wander away from zero. And then do gradient checking. 
+ 
+ ## Optimization Algorithms
+ 
+ 1. Using SGD might cause you losing the speedup from vectorization. 
+ 
+ 2. Choosing Mini-batch size rule:
+    1. If small training set(<2000), just use batch GD.
+    2. Typical mini batch size: 64, 128, 256, 512.
+    3. Make sure mini-batch size fits into your CPU or GPU.
+ 
+ 3. Exponentially weighted Averages:
+    - v0 = 0
+    - v1 = 0.9 * v0 + 0.1 * a1
+    - v2 = 0.9 * v1 + 0.1 * a2
+    - ...
+    - vt = 0.9 * v(t-1) + 0.1 * at
+    
+    Therefore: v(t) = b * v(t-1) + (1-b) * a(t)
+    
+ 4. v(t) is approximately average over 1/(1-b) days temperature. 
+ 
+ 5. This way of computing moving average is good both in terms of memory and computational efficiency. 
+ 
+ 6. It's good to compute the moving average for a range of variables. 
