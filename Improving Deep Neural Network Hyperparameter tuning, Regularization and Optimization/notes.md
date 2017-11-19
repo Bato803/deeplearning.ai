@@ -93,3 +93,56 @@
     - When implementing gradient descent with momentum, it's not very often to use bias correction. 
     
 ### RMSprop
+1. On iteration t, compute dw, db on the current mini-batch
+    - Sdw = beta2 * Sdw + (1-beta2) * (dw)^2   <-- element-wise square
+    - Sdb = beta2 * Sdb + (1-beta2) * (db)^2
+    - Keeping a exponentially average of the square of the derivative. 
+    - w = w - alpha * dw /(sqrt(Sdw))
+    - b = b - alpha * db/(sqrt(Sdb))
+    - Intuition:
+        - If during training, the derivative in the unwanted direction is large(say db is large)
+        - Then in the updating equation, we are dividing a relatively large number. 
+        - And that helps damp out the oscillation in the unwanted direction. 
+        - The derivative in the wanted direction would keep going. 
+    
+### Adam
+1. Basically it's putting momentum and RMSprop together. 
+2. Initilization:
+    - Vdw=0, Sdw=0, Vdb=0, Sdb=0
+    - On iteration t, compute dw, db using current mini-batch
+        - Momentum
+        - Vdw = bete1 * Vdw + (1-beta1) * dw
+        - Vdb = beta1 * Vdb + (1-beta1) * db
+        - Momentum with correction
+        - Vdw(corrected) = Vdw/(1-beta1^t)
+        - Vdb(corrected) = Vdb/(1-beta1^t)
+        - RMSprop
+        - Sdw = beta2 * Sdw + (1-beta2) * (dw)^2
+        - Sdb = beta2 * Sdb + (1-beta2) * (db)^2
+        - Sdw(corrected) = Sdw/(1-beta2^t)
+        - Sdb(corrected) = Sdb/(1-beta2^t)
+        - Update
+        - w = w - alpha * (Vdw(corrected))/(sqrt(Sdw(corrected)+epsilon))
+        - b = b - alpha * (Vdb(corrected))/(sqrt(Sdb(corrected)+epsilon))
+        
+3. Hyper-parameter
+    - beta1: 0.9(default for moving average)
+    - beta2: 0.999 (dw^2)
+    - epsilon: 10^(-8)
+    - alpha: needs to be tuned. 
+    
+4. Adam - Adaptive moment estimation
+
+
+### Learning rate decay
+1. As alpha goes smaller, the steps are smaller. Ends up in a tiny region around the minimum. 
+2. 1 epoch - 1 pass through the data. 
+3. alpha = 1/(1+decay_rate * epoch_num) * alpha0
+4. alpha = 0.95^(epoch_num) * alpha0
+5. alpha = k/(epoch_num) * alpha0
+
+### Local Optima
+1. Most of the local optima in deep learning cost function is saddle point. 
+2. It takes a very very long time to go down to the saddle point before it finds its way down. (Problem of plateaus)
+3. Use momentum or Adam to solve this kind of problems. 
+        
