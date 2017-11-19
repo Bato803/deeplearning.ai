@@ -91,6 +91,7 @@
     - It smooths out oscillation in the direction that we don't need. Ant at the same time maintaining the gradient that points toward the minimum. 
     - The most commonly use beta is 0.9, which means we're averaging out the last ten gradients. 
     - When implementing gradient descent with momentum, it's not very often to use bias correction. 
+    - Momentum takes past gradients into account to smooth out the steps of gradient descent. It can be applied with batch gradient descent, mini-batch gradient descent or stochastic gradient descent.
     
 ### RMSprop
 1. On iteration t, compute dw, db on the current mini-batch
@@ -132,6 +133,9 @@
     - alpha: needs to be tuned. 
     
 4. Adam - Adaptive moment estimation
+    Some advantages of Adam include:
+    - Relatively low memory requirements (though higher than gradient descent and gradient descent with momentum)
+    - Usually works well even with little tuning of hyperparameters (except  αα )
 
 
 ### Learning rate decay
