@@ -170,7 +170,7 @@
     - mu = a/(m) * sum(z(i))
     - variance = 1/(m) * sum(z(i)-mu)^2
     - z(norm)(i) = (z(i) - mu)/sqrt(variance+epsilon)
-    - z~(i) = gamma * z(norm)(i) + beta (where gamma and beta are learnable parameters. )
+    - z~(i) = gamma * z(norm)(i) + beta (where gamma and beta are learnable parameters for each hidden unit. )
 3. Use z~(i) instead of z in later computation. 
 4. Intuition: 
     - It makes weights deeper in the NN more robust to changes in the earlier layers in the NN.
