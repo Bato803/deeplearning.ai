@@ -150,3 +150,48 @@
 2. It takes a very very long time to go down to the saddle point before it finds its way down. (Problem of plateaus)
 3. Use momentum or Adam to solve this kind of problems. 
         
+## Hyperparameters Tuning
+
+1. Try random search instead of grid search during hyperparameter tuning. 
+2. Coarse to fine scheme. 
+3. If we tried to sample between 0.0001 to 1, do it on the log scale. 
+    - r = -4 * np.random.rand()
+    - alpha = 10^(r)
+    - Generally, if we tried to sample 10^(a) - 10^(b), we can calculate a = log_(10)^(left num), b = log_(10)^(right num)
+4. If we tried to sample between 0.9 - 0.99999 (the beta value for exponentially weighted average)
+    - (1-0.9) = 0.1, (1-0.99999)=0.00001
+    - sample between r = [-4, -1]
+    - 1- beta = 10^(r)
+
+### Batch Normalization
+
+1. Idea: Normalize the activation(z, instead of a) of the previous layer to speed up training for later layers. 
+2. Given intermediate values z(1),...,z(m) of a specific layer: 
+    - mu = a/(m) * sum(z(i))
+    - variance = 1/(m) * sum(z(i)-mu)^2
+    - z(norm)(i) = (z(i) - mu)/sqrt(variance+epsilon)
+    - z~(i) = gamma * z(norm)(i) + beta (where gamma and beta are learnable parameters. )
+3. Use z~(i) instead of z in later computation. 
+4. Intuition: 
+    - It makes weights deeper in the NN more robust to changes in the earlier layers in the NN.
+    - It allows each layer of NN to learn a little bit more independently. 
+    - It has a slight regularization effect if we use BN on mini-batch, because each mini-batch is a little bit noisy. 
+5. BN at test time:
+    - estimate mu and variance using exponentially weighted average across mini-batch during training. 
+    - Use that mu and variance in testing. 
+
+### Softmax Layer
+
+1. Algorithm:
+    - t = exp(z[l])
+    - a[l] = t/sum(t[i])
+2. It's for multi-class classification. 
+3. Unlike other activation functions, which takes in a number and output a number. Softmax takes in and output a vector. 
+4. The decision boundary between any of the two classes will be linear. 
+5. Loss function for Softmax:
+    - L = sum(y\*log(y))
+    - Since y can never be greater than 1, then in order to make L small, y should be as close to one as possible. 
+    - For the entire training set: J = 1/m * sum(L)
+6. Gradient Descent for Softmax:
+    - dz = y_hat - y
+    - Compute the dJ/dz
