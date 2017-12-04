@@ -36,3 +36,6 @@ detail.
   - [Week 1 - PA3 - Gradient Checking](https://github.com/Bato803/deeplearning.ai/blob/master/Improving%20Deep%20Neural%20Network%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Gradient%2BChecking%2Bv1.ipynb)
   - [Week 2 - PA1 - Optimization Methods (Momentum, RMSprop, Adam)](https://github.com/Bato803/deeplearning.ai/blob/master/Improving%20Deep%20Neural%20Network%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Optimization%2Bmethods.ipynb)
   - [Week 3 - PA1 - Tensorflow (Neural Network on SIGNS dataset)](https://github.com/Bato803/deeplearning.ai/blob/master/Improving%20Deep%20Neural%20Network%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Tensorflow%2BTutorial.ipynb)
+  
+- Course 3: Structuring Machine Learning Projects
+  - [Week 1 - Case Study: Bird Recognition in the city of Peacetopia](https://github.com/Bato803/deeplearning.ai/blob/master/Structuring%20Machine%20Learning%20Projects/Quiz.pdf)
