@@ -91,3 +91,38 @@ But rememeber, if we fixed the labels in dev set:
 - Set up dev/test set and metric
 - Build initial system quickly. 
 - Use Bias/Variance analysis and error analysis to prioritize next step. 
+
+
+## Mismatched training and dev/test set
+- Training data comes from different data? It's actually ok. 
+  - Option One: Randomly shuffle data from different distribution, and then put them into Train/Dev/Test. (Some all split comes from same distribution; but your end goal might be only one of those distributions instead of all of them) This might not be a good option because we are setting up the dev set that we does not want to optimize on. 
+  - Option Two: Setting the dev and test set come only from target distribution. (Disadvantage: Training set has different distribution) This approach is better. 
+  
+  
+### Bias and Variance with mismatched data distribution
+The way we analyze bias and variance is different when our training example comes from different distribution than test and dev set. 
+
+- If human error of a task is about 0%, our classifier training error is 1%, and dev error is 10%. 
+  - If training and dev comes from the same distribution, then our classifier might has a high bias problem. 
+  - But what if our dev comes from a different distribution??
+  - Ans: we can specifically curve out a 'training-dev' set from the training set, and the training and training-dev set would have same distribution. And perform no training on training-dev set. 
+  - If the error on training set and training-dev set has a big difference, then our algorithm has a high variance problem. 
+  - If the error on training set and training-dev set is similar, but it jumps high when it comes to dev set. That would be a data mismatch problem. 
+  - If the error on training set, training-dev, dev set is similar, but they are all worse than the human performance. That could be a bias problem. 
+  
+- Principal:
+  - Human level error. 
+  - Training set error. 
+  - Training-dev set error. 
+  - Dev set error. 
+  - Look at the four quantity above to see if it's bias/variance/data mismatch problem. 
+  
+- (Human level error <-> Training set error)  Avoidable bias problem. 
+- (Training set error <-> Training-dev set error)  Variance problem. 
+- (Training dev set error <-> Dev set error) Data mismatch problem. 
+- *If there is a huge different between dev and test set error, we over tune to the dev set* 
+
+ ### Address data mismatch problem
+- Carry out manual error analysis to try to understand difference between training and dev/test set. 
+- Make the training data more similar, and collect more similar data to dev/test set. 
+  - Artificial data synthesis. 
