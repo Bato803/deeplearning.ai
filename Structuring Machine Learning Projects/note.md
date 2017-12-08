@@ -67,3 +67,27 @@
   - Regularization(Data Augumentation, Dropout, L2 regularization...)
   
 
+## Error Analysis
+
+
+### Carrying out error analysis
+If your algorithm is not working as good as you expect, let's do error analysis to see what to do next. 
+- Ceiling of a solution. (If you solve this problem perfectly, how much improvement do you got?)
+- Find a set of mislabelled example of the dev set, look at those example for either false positive, and false negative. And count up errors for each category. 
+- Find out what cause error the most, and prioritize the direction to go. 
+
+### Clearning up incorrectly labelled data. 
+Look at three numbers:
+1. Overall dev set error. 
+2. Errors due to incorrect labels. 
+3. Errors due to all other causes. 
+
+But rememeber, if we fixed the labels in dev set:
+- Fix the labels for test set as well. 
+- Consider examining examples that our algorithm got right. 
+- Training set may come from slightly different distribution than test/dev. That's prabobly ok. But test and dev set must come from the same distribution!
+
+### Build your first system quickly and iterate 
+- Set up dev/test set and metric
+- Build initial system quickly. 
+- Use Bias/Variance analysis and error analysis to prioritize next step. 
