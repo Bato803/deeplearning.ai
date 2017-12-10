@@ -40,3 +40,4 @@ detail.
 - Course 3: Structuring Machine Learning Projects
   - [Course Note](https://github.com/Bato803/deeplearning.ai/blob/master/Structuring%20Machine%20Learning%20Projects/note.md)
   - [Week 1 - Case Study: Bird Recognition in the city of Peacetopia](https://github.com/Bato803/deeplearning.ai/blob/master/Structuring%20Machine%20Learning%20Projects/Quiz.pdf)
+  - [Week 2 - Case Study: Autonomous Driving](https://github.com/Bato803/deeplearning.ai/blob/master/Structuring%20Machine%20Learning%20Projects/Case-Study-Autonomous-Driving.pdf)
