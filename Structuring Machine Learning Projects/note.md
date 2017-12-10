@@ -155,3 +155,30 @@ The way we analyze bias and variance is different when our training example come
     - remove the last fully connected layer and replace with a layer matching the number of classes in the new data set
     - retrain the network from scratch with randomly initialized weights
     - alternatively, you could just use the same strategy as the "large and similar" data case
+
+### Multi-task Learning
+
+- Instead of using softmax loss function, who predict one label for an example, we can summing up the logistic loss:
+  - 1/(m) * sum_i^m * sum_j^4 * (L(y_j^(i), y_j^(i)))
+
+- When multi-task learning makes sense. 
+  - Training on a set of tasks that share lower level features. 
+  - Amount of data you have for each task is quite similar. 
+  - Can train a big enough network to do well on all tasks. 
+  
+  
+## End to End deep learning
+
+### WHAT
+- Bybass those hand designed phase, and it really simply the design of the system. 
+- Not always work, need a lot of data. 
+
+### WHEN TO USE AND WHEN NOT TO
+- Pros of end-to-end learning:
+  - Let the data speak instead of having to enforcing human pre-conception. 
+  - Less hand-designing of components needed. 
+- Cons:
+  - Need a large number of data. 
+  - Exclude potentially useful hand-designed components.
+- Key question:
+  - Do you have enough data to learn a function of the complexity needed to map x to y. 
