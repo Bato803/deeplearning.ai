@@ -126,3 +126,32 @@ The way we analyze bias and variance is different when our training example come
 - Carry out manual error analysis to try to understand difference between training and dev/test set. 
 - Make the training data more similar, and collect more similar data to dev/test set. 
   - Artificial data synthesis. 
+  
+  
+  
+  ## Learning from Multiple Tasks
+  
+  ### Transfer Learning
+  
+  - If the new data set is small and similar to the original training data:
+    - slice off the end of the neural network
+    - add a new fully connected layer that matches the number of classes in the new data set
+    - randomize the weights of the new fully connected layer; freeze all the weights from the pre-trained network
+    - train the network to update the weights of the new fully connected layer
+  
+  - If the new data set is small and different from the original training data: (Just use lower level features)
+    - slice off most of the pre-trained layers near the beginning of the network
+    - add to the remaining pre-trained layers a new fully connected layer that matches the number of classes in the new data set
+    - randomize the weights of the new fully connected layer; freeze all the weights from the pre-trained network
+    - train the network to update the weights of the new fully connected layer
+    
+  - If the new data set is large and similar to the original training data:
+    - remove the last fully connected layer and replace with a layer matching the number of classes in the new data set
+    - randomly initialize the weights in the new fully connected layer
+    - initialize the rest of the weights using the pre-trained weights
+    - re-train the entire neural network
+    
+  - If the new data set is large and different from the original training data:
+    - remove the last fully connected layer and replace with a layer matching the number of classes in the new data set
+    - retrain the network from scratch with randomly initialized weights
+    - alternatively, you could just use the same strategy as the "large and similar" data case
