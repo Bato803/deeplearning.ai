@@ -67,3 +67,118 @@
   - Regularization(Data Augumentation, Dropout, L2 regularization...)
   
 
+## Error Analysis
+
+
+### Carrying out error analysis
+If your algorithm is not working as good as you expect, let's do error analysis to see what to do next. 
+- Ceiling of a solution. (If you solve this problem perfectly, how much improvement do you got?)
+- Find a set of mislabelled example of the dev set, look at those example for either false positive, and false negative. And count up errors for each category. 
+- Find out what cause error the most, and prioritize the direction to go. 
+
+### Clearning up incorrectly labelled data. 
+Look at three numbers:
+1. Overall dev set error. 
+2. Errors due to incorrect labels. 
+3. Errors due to all other causes. 
+
+But rememeber, if we fixed the labels in dev set:
+- Fix the labels for test set as well. 
+- Consider examining examples that our algorithm got right. 
+- Training set may come from slightly different distribution than test/dev. That's prabobly ok. But test and dev set must come from the same distribution!
+
+### Build your first system quickly and iterate 
+- Set up dev/test set and metric
+- Build initial system quickly. 
+- Use Bias/Variance analysis and error analysis to prioritize next step. 
+
+
+## Mismatched training and dev/test set
+- Training data comes from different data? It's actually ok. 
+  - Option One: Randomly shuffle data from different distribution, and then put them into Train/Dev/Test. (Some all split comes from same distribution; but your end goal might be only one of those distributions instead of all of them) This might not be a good option because we are setting up the dev set that we does not want to optimize on. 
+  - Option Two: Setting the dev and test set come only from target distribution. (Disadvantage: Training set has different distribution) This approach is better. 
+  
+  
+### Bias and Variance with mismatched data distribution
+The way we analyze bias and variance is different when our training example comes from different distribution than test and dev set. 
+
+- If human error of a task is about 0%, our classifier training error is 1%, and dev error is 10%. 
+  - If training and dev comes from the same distribution, then our classifier might has a high bias problem. 
+  - But what if our dev comes from a different distribution??
+  - Ans: we can specifically curve out a 'training-dev' set from the training set, and the training and training-dev set would have same distribution. And perform no training on training-dev set. 
+  - If the error on training set and training-dev set has a big difference, then our algorithm has a high variance problem. 
+  - If the error on training set and training-dev set is similar, but it jumps high when it comes to dev set. That would be a data mismatch problem. 
+  - If the error on training set, training-dev, dev set is similar, but they are all worse than the human performance. That could be a bias problem. 
+  
+- Principal:
+  - Human level error. 
+  - Training set error. 
+  - Training-dev set error. 
+  - Dev set error. 
+  - Look at the four quantity above to see if it's bias/variance/data mismatch problem. 
+  
+- (Human level error <-> Training set error)  Avoidable bias problem. 
+- (Training set error <-> Training-dev set error)  Variance problem. 
+- (Training dev set error <-> Dev set error) Data mismatch problem. 
+- *If there is a huge different between dev and test set error, we over tune to the dev set* 
+
+ ### Address data mismatch problem
+- Carry out manual error analysis to try to understand difference between training and dev/test set. 
+- Make the training data more similar, and collect more similar data to dev/test set. 
+  - Artificial data synthesis. 
+  
+  
+  
+  ## Learning from Multiple Tasks
+  
+  ### Transfer Learning
+  
+  - If the new data set is small and similar to the original training data:
+    - slice off the end of the neural network
+    - add a new fully connected layer that matches the number of classes in the new data set
+    - randomize the weights of the new fully connected layer; freeze all the weights from the pre-trained network
+    - train the network to update the weights of the new fully connected layer
+  
+  - If the new data set is small and different from the original training data: (Just use lower level features)
+    - slice off most of the pre-trained layers near the beginning of the network
+    - add to the remaining pre-trained layers a new fully connected layer that matches the number of classes in the new data set
+    - randomize the weights of the new fully connected layer; freeze all the weights from the pre-trained network
+    - train the network to update the weights of the new fully connected layer
+    
+  - If the new data set is large and similar to the original training data:
+    - remove the last fully connected layer and replace with a layer matching the number of classes in the new data set
+    - randomly initialize the weights in the new fully connected layer
+    - initialize the rest of the weights using the pre-trained weights
+    - re-train the entire neural network
+    
+  - If the new data set is large and different from the original training data:
+    - remove the last fully connected layer and replace with a layer matching the number of classes in the new data set
+    - retrain the network from scratch with randomly initialized weights
+    - alternatively, you could just use the same strategy as the "large and similar" data case
+
+### Multi-task Learning
+
+- Instead of using softmax loss function, who predict one label for an example, we can summing up the logistic loss:
+  - 1/(m) * sum_i^m * sum_j^4 * (L(y_j^(i), y_j^(i)))
+
+- When multi-task learning makes sense. 
+  - Training on a set of tasks that share lower level features. 
+  - Amount of data you have for each task is quite similar. 
+  - Can train a big enough network to do well on all tasks. 
+  
+  
+## End to End deep learning
+
+### WHAT
+- Bybass those hand designed phase, and it really simply the design of the system. 
+- Not always work, need a lot of data. 
+
+### WHEN TO USE AND WHEN NOT TO
+- Pros of end-to-end learning:
+  - Let the data speak instead of having to enforcing human pre-conception. 
+  - Less hand-designing of components needed. 
+- Cons:
+  - Need a large number of data. 
+  - Exclude potentially useful hand-designed components.
+- Key question:
+  - Do you have enough data to learn a function of the complexity needed to map x to y. 
