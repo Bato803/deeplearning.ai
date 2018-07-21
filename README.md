@@ -41,3 +41,6 @@ detail.
   - [Course Note](https://github.com/Bato803/deeplearning.ai/blob/master/Structuring%20Machine%20Learning%20Projects/note.md)
   - [Week 1 - Case Study: Bird Recognition in the city of Peacetopia](https://github.com/Bato803/deeplearning.ai/blob/master/Structuring%20Machine%20Learning%20Projects/Quiz.pdf)
   - [Week 2 - Case Study: Autonomous Driving](https://github.com/Bato803/deeplearning.ai/blob/master/Structuring%20Machine%20Learning%20Projects/Case-Study-Autonomous-Driving.pdf)
+
+- Course 4: Convolutional Neural Networks
+  - [Week 1 - PA1 - Convolution+model+-+Step+by+Step+-+v2]
