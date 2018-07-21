@@ -43,4 +43,4 @@ detail.
   - [Week 2 - Case Study: Autonomous Driving](https://github.com/Bato803/deeplearning.ai/blob/master/Structuring%20Machine%20Learning%20Projects/Case-Study-Autonomous-Driving.pdf)
 
 - Course 4: Convolutional Neural Networks
-  - [Week 1 - PA1 - Convolution+model+-+Step+by+Step+-+v2]
+  - [Week 1 - PA1 - Convolution+model+-+Step+by+Step+-+v2](https://github.com/Bato803/deeplearning.ai/blob/master/Convolutional%20Neural%20Networks/Convolution%2Bmodel%2B-%2BStep%2Bby%2BStep%2B-%2Bv2.ipynb)
