@@ -1,5 +1,18 @@
 ## Convolutional Neural Network
 
+## Case Study
+
+### Practical Advice
+
+1. Data Augmentation. 
+  - Random cropping, mirroring, shearing, rotation, ...
+  - Color shifting (take different R,G,B values to distort image channels) 
+  - PCA color augmentation. (keep the overall color of the tints the same.)
+
+2. State of Computer Vision
+  - Few tips for doing well on benchmarks/competitions 
+    1) Emsembling - averaging different NNs outputs
+    2) Multi-crop at test time (Run classifier on multiple versions of test images, and average results)
 
 ## Detection Algorithm
 
