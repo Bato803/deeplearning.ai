@@ -45,3 +45,4 @@ detail.
 - Course 4: Convolutional Neural Networks
   - [Week 1 - PA1 - Convolution+model+-+Step+by+Step+-+v2](https://github.com/Bato803/deeplearning.ai/blob/master/Convolutional%20Neural%20Networks/Convolution%2Bmodel%2B-%2BStep%2Bby%2BStep%2B-%2Bv2.ipynb)
   - [Week 1 - PA2 - Hand Gesture recognition](https://github.com/Bato803/deeplearning.ai/blob/master/Convolutional%20Neural%20Networks/Convolution%2Bmodel%2B-%2BApplication%2B-%2Bv1.ipynb)
+  - [Week 2 - PA1 - Residual block and ResNet Implementation](https://github.com/Bato803/deeplearning.ai/blob/master/Convolutional%20Neural%20Networks/Residual%2BNetworks%2B-%2Bv2.ipynb)
