@@ -66,3 +66,8 @@
 2. If IoU >= 0.5, treated as correction localization. This way, we could use accuracy to measure our detection task. 
 
 ### Non-maximum suppression. 
+
+1. Say, in a 19 by 19 grid, we have a (19, 19, 8) volumn. (pc, bx, by, bw, bh, c1, c2, c3)
+2. Discard the bounding boxes with pc less than some threshold, such as 0.6
+3. Pick the box with the highest pc * c1, treated as ouput, and discard remaining bounding boxes with >= 0.5 IoU. 
+4. Repeat step 3 for the other two classes. 
