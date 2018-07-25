@@ -71,3 +71,14 @@
 2. Discard the bounding boxes with pc less than some threshold, such as 0.6
 3. Pick the box with the highest pc * c1, treated as ouput, and discard remaining bounding boxes with >= 0.5 IoU. 
 4. Repeat step 3 for the other two classes. 
+
+### Anchor Boxes
+
+A grid cell that can detect multiple object. 
+
+1. Pre-defined boxes with different shape. 
+2. Say if we have two different boxes, then we associate our output volumn with different anchor boxes. In this case, our output will have the shape (19,19,16) instead of (19,19,8)
+
+Without anchor boxes, each object is assigned to grid cell that contains that object's midpoint. 
+With anchor boxes, each object is assigned to grid cell that contains that object's midpoint and anchor box for the grid cell that has higher IoU with ground truth. 
+
