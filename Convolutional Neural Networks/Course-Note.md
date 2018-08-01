@@ -1,4 +1,4 @@
-## Convolutional Neural Network
+# Convolutional Neural Network
 
 ## Case Study
 
@@ -81,4 +81,42 @@ A grid cell that can detect multiple object.
 
 Without anchor boxes, each object is assigned to grid cell that contains that object's midpoint. 
 With anchor boxes, each object is assigned to grid cell that contains that object's midpoint and anchor box for the grid cell that has higher IoU with ground truth. 
+
+## Neural Style Transfer
+
+### What are deep conv net lelarning? 
+Method: Pick a unit in a particular layer, and find the image patches that maximize the unit's activation. Repeat for other units. 
+  - For example, units in the first layer are looking for simple features such as edges of particular color. 
+  - Units in layer two might be looking at more complex features, such as vertical textures of lots of vertical line, rounded shape in the left side of the image, thin vertical lines. 
+  - In layer three, features are getting more complicated, such as tires at the lower left corner, detecting people, square or honey shape texture. 
+
+### Cost Function
+- Goal: Given a Content image C and a Style image S, to generate a new image G. 
+- Define a cost function J(G) to measure how good is this image. 
+- J(G) = alpha * J_{content}(C, G) + beta * J_{style}(S, G) --> how similar is C & G, and how similar is S and G. 
+- Steps:
+  1. Initiate G randomly. 
+  2. Use gradient descent to minimize J(G)
+
+### Content Cost Function
+- Say we use hidden layer l to compute content cost. 
+- Use pre-trained ConvNet
+- Compute activation[l](C) and activation[l](G) of layer l on the images. 
+- If activation[l](C) and activation[l](G) are similar, both images have similar content. 
+- J_{content}(C,G) = 0.5 * ||a[l](C)-a[l](G)||^2
+- Element-wise sum square difference between these two vectors. 
+
+### Style Cost Function
+
+- Define the 'style' of an image: Define style as correlation between activations across channels. 
+- Intuitions: Correlation means which/how often the high level texture components tend to occur or not occur together. 
+- Use the degree of correlation between channels as a measurement of style. And compare the degree of correlation between generated image's feature map and style image's feature map. 
+
+- Style matrix:
+  - G[l] -> (nc, nc)   (nc--number of channels)
+  - G[l]{k, k'} = sum_{i} sum{j} a[l](i,j,k) * a[l](i, j, k')
+  - If they are correlated, the number would be large and if it's uncorrelated, the number would be small. 
+  - J(S, G) = || G[l](S) - G[l](G) || ^ 2
+  
+  
 
