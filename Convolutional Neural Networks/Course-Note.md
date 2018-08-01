@@ -107,6 +107,9 @@ Triplet loss function is used to train Siamese Network to learning a good encodi
 2. Want: ||f(A)-f(P)|| < || f(A)-f(N)||
 3. To prevent f always predict zero, we added margin alpha to the above function:
   - ||f(A)-f(P)|| - || f(A) - f(N) || + alpha <= 0 (alpha>0)
+4. Loss function:
+  - max(||f(A)-f(P)|| - || f(A) - f(N) || + alpha, 0)
+  - Minimize the loss function! 
 
 
 ## Neural Style Transfer
