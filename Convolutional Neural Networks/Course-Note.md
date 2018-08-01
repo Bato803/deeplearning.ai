@@ -82,6 +82,33 @@ A grid cell that can detect multiple object.
 Without anchor boxes, each object is assigned to grid cell that contains that object's midpoint. 
 With anchor boxes, each object is assigned to grid cell that contains that object's midpoint and anchor box for the grid cell that has higher IoU with ground truth. 
 
+## Face Recognition
+
+### One shot learning
+1. Learning from one example to recognize the person again.
+2. Solution: Learning a similarity function. 
+  - d(img1, img2) = degree of difference between images. 
+    - If d(img1, img2) <= threshold, same person, if d(img1, img2) > threshold, different person. 
+    - This could be used to solve face verification problem. 
+  - For recognition task:
+    - Compare input image with the images in the database. 
+    - Figure out the person with minimum d. 
+
+### Siamese Network
+1. Feed an input image into CNN, get the encoding vector f(x1) of input image from CNN.
+2. Feed second input image into the same CNN with the same parameters, and get the encoding vector f(x2) from it. 
+3. If the encoding is good, find the d(x1, x2) = || f(x1) - f(x2) || ^ 2
+4. Parameters of NN define an encoding f(xi)
+  - Goal of training this network, it's if xi and xj are the same person, then ||f(xi)-f(xj)|| is small. 
+
+### Triplet Loss function 
+Triplet loss function is used to train Siamese Network to learning a good encoding of input image. 
+1. Anchor image, positive image(same), negative image(different)
+2. Want: ||f(A)-f(P)|| < || f(A)-f(N)||
+3. To prevent f always predict zero, we added margin alpha to the above function:
+  - ||f(A)-f(P)|| - || f(A) - f(N) || + alpha <= 0 (alpha>0)
+
+
 ## Neural Style Transfer
 
 ### What are deep conv net lelarning? 
@@ -118,5 +145,7 @@ Method: Pick a unit in a particular layer, and find the image patches that maxim
   - If they are correlated, the number would be large and if it's uncorrelated, the number would be small. 
   - J(S, G) = || G[l](S) - G[l](G) || ^ 2
   
-  
+### 1D and 3D Generalization of Conv net. 
+
+
 
